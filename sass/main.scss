@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Cairo-Medium";
+    src: url("../css/fonts/Cairo-Medium.ttf");
+}
+@import "_variables.scss";
+* {
+    margin: $margin;
+    padding: $padding;
+    box-sizing: border-box;
+    font-family: "Cairo-Medium";
+}
+.row {
+    width: 100%;
+    margin: $margin;
+}
+body {
+    background-color: $body-color;
+}
+p {
+    line-height: 1.7;
+}
+@import "_navbar.scss";
+@import "_ads.scss";
+@import "_products-content.scss";
+@import "_products-page.scss";
+@import "_product-details.scss";
+@import "_footer.scss";

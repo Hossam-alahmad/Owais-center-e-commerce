@@ -1,19 +1,59 @@
-let chosen = 1;
+window.onload = () => {
+    let sliders = document.querySelectorAll(".ads .slide");
+    let next = document.querySelector(".ads .next");
+    let previos = document.querySelector(".ads .previos");
 
-let myFriends = [
-    { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
-    { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
-    { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
-];
-
-let {
-    title,
-    age,
-    available,
-    skills: [, two],
-} = myFriends[chosen - 1];
-
-console.log(title);
-console.log(age);
-available ? console.log("Available") : console.log("Not Available");
-console.log(two);
+    next.onclick = () => {
+        let num;
+        changeAdsSlide();
+    };
+    previos.onclick = () => {
+        let num;
+        sliders.forEach((el) => {
+            if (el.classList.contains("active")) {
+                if (parseInt(el.dataset.value) <= 1) {
+                    num = sliders.length + 1;
+                } else {
+                    num = parseInt(el.dataset.value);
+                }
+                el.classList.remove("active");
+            }
+        });
+        sliders.forEach((el) => {
+            if (parseInt(el.dataset.value) === num - 1) {
+                el.classList.add("active");
+            }
+        });
+    };
+    // this function for make slider run every 10 second automatically
+    (function runSliderAds() {
+        let num;
+        setInterval(changeAdsSlide, 10000);
+    })();
+    // this fumction using to change slider image
+    function changeAdsSlide() {
+        sliders.forEach((el) => {
+            if (el.classList.contains("active")) {
+                if (parseInt(el.dataset.value) >= sliders.length) {
+                    num = 0;
+                } else {
+                    num = parseInt(el.dataset.value);
+                }
+                el.classList.remove("active");
+            }
+        });
+        sliders.forEach((el) => {
+            if (parseInt(el.dataset.value) === num + 1) {
+                el.classList.add("active");
+            }
+        });
+    }
+    let filterTitle = document.getElementById("filter-title");
+    let searchingSection = document.querySelector(".filters .searching");
+    // event for show/hide filter section
+    filterTitle.addEventListener("click", () => {
+        searchingSection.classList.toggle("hide-section");
+        filterTitle.classList.toggle("margin-bottom-reset");
+    });
+    filterTitle.firstElementChild;
+};

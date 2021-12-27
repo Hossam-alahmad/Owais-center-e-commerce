@@ -1,0 +1,113 @@
+// start breadcramb
+.product-content {
+    .content {
+        .row {
+            .breadcramb {
+                margin-bottom: $margin-bottom-3;
+                .box {
+                    background-color: $white-color;
+                    box-shadow: 0 0px 5px #e7e7e7;
+                    padding: $padding-top-2;
+                    ul {
+                        padding: $padding $padding-right-3;
+                        margin: $margin;
+                        display: flex;
+                        flex-wrap: wrap;
+                        li {
+                            position: relative;
+                            list-style: none;
+                            padding-left: $padding-left-3;
+                            cursor: pointer;
+                            a {
+                                text-decoration: none;
+                                color: $main-color;
+                            }
+                        }
+                        li:not(:last-of-type):before {
+                            content: "";
+                            position: absolute;
+                            width: 1;
+                            width: 2px;
+                            left: 7px;
+                            top: calc(10% / 2);
+                            height: 90%;
+                            background-color: $main-color;
+                            transform: rotate(30deg);
+                        }
+                        li:last-of-type {
+                            color: $second-color;
+                        }
+                    }
+                }
+            }
+            .products {
+                .row {
+                    .title-box {
+                        margin-bottom: $margin-bottom-3;
+                        header {
+                            background-color: $white-color;
+                            box-shadow: 0 0px 5px #e7e7e7;
+                            padding: $padding-top-2;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: $margin;
+                            h2 {
+                                font-size: $font-size-8;
+                            }
+                            h2,
+                            p {
+                                margin-bottom: $margin;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 320px) {
+    .product-content {
+        .content {
+            .row {
+                .breadcramb {
+                    .box {
+                        ul {
+                            li {
+                                font-size: $font-size-2;
+                            }
+                        }
+                    }
+                }
+                .products {
+                    .row {
+                        .title-box {
+                            header {
+                                h2 {
+                                    font-size: $font-size-6;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: 321px) and (max-width: 575.98px) {
+    .product-content {
+        .content {
+            .row {
+                .breadcramb {
+                    .box {
+                        ul {
+                            li {
+                                font-size: $font-size-4;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
